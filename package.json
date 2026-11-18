@@ -1,0 +1,15 @@
+{
+  "name": "fablebot-story-studio",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Deterministic, offline story-seed generator for writers.",
+  "scripts": {
+    "test": "node --test",
+    "check": "node --check src/engine.js && node --check src/app.js"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "license": "MIT"
+}
