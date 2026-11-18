@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#171326">
+  <meta name="description" content="FableBot creates deterministic story seeds for writers, game designers, and curious minds.">
+  <title>FableBot — Story Seed Studio</title>
+  <link rel="stylesheet" href="./src/styles.css">
+  <script type="module" src="./src/app.js"></script>
+</head>
+<body>
+  <div class="ambient ambient-one"></div><div class="ambient ambient-two"></div>
+  <header class="topbar">
+    <a class="brand" href="./"><span class="brand-mark">✳</span><span>fablebot<span class="brand-dot">.</span></span></a>
+    <span class="top-note">A STORY SEED STUDIO</span>
+    <span class="offline-pill"><span></span> Offline by design</span>
+  </header>
+
+  <main class="shell">
+    <section class="hero">
+      <p class="eyebrow">START WITH A SPARK</p>
+      <h1>Every great story<br>starts <em>somewhere.</em></h1>
+      <p class="hero-copy">A little structure. A surprising turn. A world that's yours to finish. Generate a story seed, then make it your own.</p>
+    </section>
+
+    <div class="workspace">
+      <section class="builder panel" aria-labelledby="builder-title">
+        <div class="section-heading"><div><p class="eyebrow">THE STORY RECIPE</p><h2 id="builder-title">Give the tale a direction</h2></div><span class="step-number">01</span></div>
+        <form id="story-form">
+          <label for="genre">Choose a genre</label>
+          <select id="genre" name="genre">
+            <option value="fantasy">Fantasy</option>
+            <option value="science-fiction">Science fiction</option>
+            <option value="mystery">Mystery</option>
+            <option value="cozy">Cozy wonder</option>
+          </select>
+
+          <label for="theme">What's the story about?</label>
+          <input id="theme" name="theme" maxlength="70" value="a lighthouse that remembers every ship" required>
+
+          <label for="hero-name">Who is at the center?</label>
+          <input id="hero-name" name="hero" maxlength="36" value="Mira" required>
+
+          <label for="seed">A seed word <span class="optional">optional, for repeatable results</span></label>
+          <input id="seed" name="seed" maxlength="48" placeholder="e.g. moonlit-archive">
+
+          <button class="primary-button" type="submit">Generate a story seed <span>↗</span></button>
+          <p class="form-note">Change the seed word to explore a different combination. Keep it to recreate the same outline.</p>
+        </form>
+      </section>
+
+      <section class="result-column" aria-label="Generated story">
+        <section id="empty-state" class="empty-state panel">
+          <div class="sparkle">✧</div>
+          <p class="eyebrow">YOUR CANVAS IS READY</p>
+          <h2>A blank page is full of possibility.</h2>
+          <p>Choose a genre and give your story a spark. Your outline will appear here, ready for your imagination.</p>
+          <div class="empty-orbit" aria-hidden="true"><span></span><span></span><span></span></div>
+        </section>
+        <section id="story-result" class="story-result panel" hidden aria-live="polite">
+          <div class="section-heading"><div><p class="eyebrow">THE FIRST DRAFT OF AN IDEA</p><h2 id="story-title"></h2></div><span class="step-number">02</span></div>
+          <p id="story-logline" class="logline"></p>
+          <div class="story-meta"><span id="story-genre"></span><span id="story-seed"></span></div>
+          <div id="story-beats" class="story-beats"></div>
+          <div class="story-actions">
+            <button id="copy-button" class="secondary-button" type="button">Copy outline</button>
+            <button id="download-button" class="secondary-button" type="button">Download .md</button>
+            <button id="remix-button" class="text-button" type="button">Remix seed ↻</button>
+          </div>
+        </section>
+      </section>
+    </div>
+
+    <section class="saved-section">
+      <div class="section-heading"><div><p class="eyebrow">YOUR NOTEBOOK</p><h2>Recent story seeds</h2></div><span class="muted-label">Saved on this device</span></div>
+      <div id="saved-list" class="saved-list"><p class="saved-empty">Your generated outlines will collect here.</p></div>
+    </section>
+    <footer class="footer"><span>FableBot</span><span>Human imagination, with a helpful first nudge.</span><span>No account · No API · No model download</span></footer>
+  </main>
+</body>
+</html>
